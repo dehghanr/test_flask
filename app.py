@@ -2,10 +2,14 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 
-model = pickle.load(open('iri.pkl', 'rb'))
+import sys
+print(sys.version)
+
+# model = pickle.load(open('iri.pkl', 'rb'))
+with open('iri.pkl', 'rb') as f:
+    model = pickle.load(f)
 
 app = Flask(__name__)
-
 
 
 @app.route('/')
@@ -26,18 +30,3 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

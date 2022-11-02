@@ -15,7 +15,9 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 from sklearn.svm import SVC
-sv = SVC(kernel='linear').fit(X_train,y_train)
+sv = SVC(kernel='linear').fit(X_train, y_train)
 
+with open('iri.pkl', 'wb') as f:
+    pickle.dump(sv, f)
 
-pickle.dump(sv, open('iri.pkl', 'wb'))
+# pickle.dump(sv, open('iri.pkl', 'wb'))
